@@ -1,14 +1,10 @@
-use std::io::*;
-use std::str::FromStr;
+// Standard input
+fn read () {
+    let mut input  = String::new();
 
-fn read<T: FromStr>() -> T {
-    let stdin = stdin();
-    let stdin = stdin.lock();
-    let token: String = stdin
-        .bytes()
-        .map(|c| c.expect("failed to read char") as char) 
-        .skip_while(|c| c.is_whitespace())
-        .take_while(|c| !c.is_whitespace())
-        .collect();
-    token.parse().ok().expect("failed to parse token")
+    io::stdin().read_line(&mut input)
+        .expect("Failed to read line");
+
+    let array: Vec<&str> = input.split(',').collect();
+    println!("values: {:?}", array);
 }
