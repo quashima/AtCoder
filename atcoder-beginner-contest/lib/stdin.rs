@@ -1,10 +1,10 @@
 // Standard input
 fn read () {
+    // Standard input
     let mut input  = String::new();
 
-    io::stdin().read_line(&mut input)
-        .expect("Failed to read line");
+    io::stdin().read_line(&mut input).unwrap();
+    let mut array = input.split_whitespace();
 
-    let array: Vec<&str> = input.split(',').collect();
-    println!("values: {:?}", array);
+    println!("{}", array.next().unwrap());
 }
